@@ -48,6 +48,7 @@ global:
       database: "demodb"
 
 postgresql:
+  fullnameOverride: postgres-demo
   primary:
     resources:
       limits:
