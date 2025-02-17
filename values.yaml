@@ -47,40 +47,42 @@ global:
       username: "userdemo"
       database: "demodb"
 
-# Contrainte de sécurité Openshift
 postgresql:
-  fullnameOverride: postgres-demo
-  volumePermissions:
-    enabled: false
-    securityContext:
-      runAsUser: "auto"
-  securityContext:
-    enabled: false
-  shmVolume:
-    chmod:
-      enabled: false
-  containerSecurityContext:
-    enabled: false
-  podSecurityContext:
-    enabled: false
   primary:
     resources:
       limits:
         memory: "512Mi"
-        cpu: "1"
+        cpu: "500m"
       requests:
         memory: "512Mi"
-        cpu: "1"
-    volumePermissions:
-      enabled: false
-      securityContext:
-        runAsUser: "auto"
+        cpu: "500m"
+    containerSecurityContext:
+      enabled: true
+    podSecurityContext:
+      enabled: true
+  volumePermissions:
+    enabled: false
     securityContext:
+      runAsUser: "1001"
+  securityContext:
+    enabled: true
+  shmVolume:
+    chmod:
       enabled: false
+  containerSecurityContext:
+    enabled: true
+  podSecurityContext:
+    enabled: true
+    volumePermissions:
+      enabled: true
+      securityContext:
+        runAsUser: "1001"
+    securityContext:
+      enabled: true
     shmVolume:
       chmod:
         enabled: false
     containerSecurityContext:
-      enabled: false
+      enabled: true
     podSecurityContext:
-      enabled: false
+      enabled: true
