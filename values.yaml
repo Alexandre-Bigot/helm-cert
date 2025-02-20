@@ -44,8 +44,6 @@ global:
       secretKeys:
         userPasswordKey: "PG_PASSWORD"
         adminPasswordKey: "PG_PASSWORD"
-      username: "userdemo"
-      database: "demodb"
 
 # Contrainte de sécurité Openshift
 postgresql:
